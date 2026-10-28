@@ -1,54 +1,224 @@
+/* =====================================
+   1. HTML элементтерін табу
+===================================== */
+
 const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const cityFilter = document.getElementById("cityFilter");
+const typeFilter = document.getElementById("typeFilter");
 
-if (searchForm) {
-    const searchInput = document.getElementById("searchInput");
+const jobsGrid = document.getElementById("jobsGrid");
+const resultsCount = document.getElementById("resultsCount");
+const emptyMessage = document.getElementById("emptyMessage");
+const resetButton = document.getElementById("resetButton");
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+const loginDialog = document.getElementById("loginDialog");
+const registerDialog = document.getElementById("registerDialog");
+
+
+/* =====================================
+   2. Вакансияларды іздеу және сүзу
+===================================== */
+
+function filterJobs() {
+    const searchText = searchInput.value.trim().toLowerCase();
+    const selectedCity = cityFilter.value;
+    const selectedType = typeFilter.value;
+
     const jobCards = document.querySelectorAll(".job-card");
-    const jobCount = document.getElementById("jobCount");
-    const emptyMessage = document.getElementById("emptyMessage");
+    let visibleCount = 0;
 
-    searchForm.addEventListener("submit", function (event) {
+    jobCards.forEach(function (card) {
+        const title = card.dataset.title.toLowerCase();
+        const company = card.dataset.company.toLowerCase();
+        const city = card.dataset.city;
+        const type = card.dataset.type;
+
+        const matchesText =
+            title.includes(searchText) ||
+            company.toLowerCase().includes(searchText);
+
+        const matchesCity =
+            selectedCity === "" || city === selectedCity;
+
+        const matchesType =
+            selectedType === "" || type === selectedType;
+
+        const isVisible =
+            matchesText && matchesCity && matchesType;
+
+        card.hidden = !isVisible;
+
+        if (isVisible) {
+            visibleCount++;
+        }
+    });
+
+    resultsCount.textContent =
+        "Вакансиялар саны: " + visibleCount;
+
+    emptyMessage.hidden = visibleCount !== 0;
+}
+
+
+/* Іздеу батырмасын басқанда */
+
+searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    filterJobs();
+});
+
+
+/* Қала немесе жұмыс форматы өзгергенде */
+
+cityFilter.addEventListener("change", filterJobs);
+typeFilter.addEventListener("change", filterJobs);
+
+
+/* Сүзгілерді тазарту */
+
+resetButton.addEventListener("click", function () {
+    searchInput.value = "";
+    cityFilter.value = "";
+    typeFilter.value = "";
+
+    filterJobs();
+});
+
+
+/* =====================================
+   3. Телефондағы мәзір
+===================================== */
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Мәзірді жабу" : "Мәзірді ашу"
+    );
+});
+
+
+/* Мәзірдегі сілтемені басқанда оны жабу */
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Мәзірді ашу");
+    });
+});
+
+
+/* =====================================
+   4. Кіру және тіркелу терезелері
+===================================== */
+
+document.getElementById("loginButton").addEventListener(
+    "click",
+    function () {
+        loginDialog.showModal();
+    }
+);
+
+document.getElementById("registerButton").addEventListener(
+    "click",
+    function () {
+        registerDialog.showModal();
+    }
+);
+
+
+/* =====================================
+   5. Демонстрациялық кіру формасы
+===================================== */
+
+document.getElementById("loginForm").addEventListener(
+    "submit",
+    function (event) {
         event.preventDefault();
 
-        const query = searchInput.value.trim().toLowerCase();
-        let count = 0;
+        alert(
+            "Бұл — демонстрациялық нұсқа. " +
+            "Нақты аккаунтқа кіру әзірге қосылмаған."
+        );
 
-        jobCards.forEach(function (card) {
-            const text = card.textContent.toLowerCase();
-            const data = card.dataset.search.toLowerCase();
-            const matches = text.includes(query) || data.includes(query);
+        loginDialog.close();
+        this.reset();
+    }
+);
 
-            card.hidden = !matches;
 
-            if (matches) {
-                count++;
-            }
+/* =====================================
+   6. Демонстрациялық тіркелу формасы
+===================================== */
+
+document.getElementById("registerForm").addEventListener(
+    "submit",
+    function (event) {
+        event.preventDefault();
+
+        alert(
+            "Форма тексерілді! Нақты тіркелу мен " +
+            "деректерді сақтау жүйесі әлі қосылмаған."
+        );
+
+        registerDialog.close();
+        this.reset();
+    }
+);
+
+
+/* =====================================
+   7. Вакансияға өтінім беру
+===================================== */
+
+document.querySelectorAll(".apply-button").forEach(
+    function (button) {
+        button.addEventListener("click", function () {
+            const jobCard = button.closest(".job-card");
+            const jobTitle = jobCard.dataset.title;
+
+            alert(
+                '"' + jobTitle + '" вакансиясына өтінім беру ' +
+                "функциясы әзірге демонстрациялық режимде."
+            );
         });
+    }
+);
 
-        jobCount.textContent = count + " jobs found";
-        emptyMessage.hidden = count !== 0;
-    });
-}
 
-// Login form: visual prototype only
-const loginForm = document.getElementById("loginForm");
+/* =====================================
+   8. Жұмыс берушілерге арналған батырма
+===================================== */
 
-if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+document.getElementById("employerButton").addEventListener(
+    "click",
+    function () {
+        alert(
+            "Жұмыс берушілерге арналған толық байланыс " +
+            "жүйесі кейін қосылады."
+        );
+    }
+);
 
-        document.getElementById("loginMessage").textContent =
-            "Demo only. Connect PHP authentication to log in.";
-    });
-}
 
-// Registration form: visual prototype only
-const registerForm = document.getElementById("registerForm");
+/* =====================================
+   9. Ағымдағы жылды көрсету
+===================================== */
 
-if (registerForm) {
-    registerForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
 
-        document.getElementById("registerMessage").textContent =
-            "Demo only. Connect PHP and MySQL to create an account.";
-    });
-}
+
+/* =====================================
+   10. Сайт ашылғанда бастапқы сүзгі
+===================================== */
+
+filterJobs();
