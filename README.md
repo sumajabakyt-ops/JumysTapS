@@ -1,35 +1,44 @@
-# jobfinderkz
-# JobFinder — Job Search and Resume Platform
+# JumysTapS — жұмыс іздеу платформасы
 
-## About the Project
+## Жоба туралы
 
-JobFinder is a web application designed to connect job seekers and employers. Users can search for vacancies, create resumes, and apply for jobs.
+JumysTapS — Қазақстандағы жұмыс іздеушілер мен жұмыс берушілерді байланыстыруға арналған қазақ тіліндегі веб-платформа.
 
-## Project Objectives
+Жобаның негізгі мақсаты — пайдаланушыларға бос жұмыс орындарын табуға, өз дағдылары туралы ақпарат беруге және жұмысқа орналасу мүмкіндіктерін зерттеуге көмектесу.
 
-- Create a job search platform.
-- Allow users to register and log in.
-- Enable employers to publish vacancies.
-- Allow job seekers to create resumes.
-- Implement job applications and application status tracking.
+## Негізгі мүмкіндіктер
 
-## Technologies
+- Вакансияларды іздеу
+- Қала және жұмыс форматы бойынша сүзу
+- Пайдаланушыларды тіркеу және жүйеге кіру
+- Жеке резюме жасау
+- Жұмыс берушілерге вакансия жариялау
+- Жұмысқа өтінім беру
 
-- HTML5
-- CSS3
-- JavaScript
-- PHP
-- MySQL
-- Git and GitHub
+## Қолданылатын технологиялар
 
-## Main Features
+- HTML5 — веб-беттің құрылымы
+- CSS3 — дизайн және адаптивті интерфейс
+- JavaScript — іздеу және интерактивті функциялар
+- PHP — серверлік бөлік (келесі кезеңде)
+- MySQL — дерекқор (келесі кезеңде)
+- Git және GitHub — нұсқаларды басқару
 
-- User registration and authentication
-- Job search and filtering
-- Vacancy management
-- Resume creation
-- Job application management
+## Жоба құрылымы
 
-## Project Status
+- `index.html` — басты бет
+- `style.css` — сайттың дизайны
+- `script.js` — JavaScript функциялары
+- `README.md` — жоба сипаттамасы
 
-Currently in the planning and design stage.
+## Жобаның мәртебесі
+
+Қазіргі уақытта жоба бастапқы әзірлеу кезеңінде.
+Алғашқы нұсқада HTML, CSS және JavaScript арқылы
+сайттың интерфейсі мен вакансияларды іздеу функциясы жасалады.
+
+## Авторлық жоба
+
+**Жоба атауы:** JumysTapS
+
+**Жоба бағыты:** жұмыс іздеу және резюме платформасы
