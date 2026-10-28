@@ -1,736 +1,887 @@
 /* =====================================
-   1. Негізгі баптаулар
+   JumysTapS — PREMIUM DESIGN
+   Black • Ivory • Champagne Gold
 ===================================== */
 
 :root {
-    --primary: #3157d5;
-    --primary-dark: #2444b5;
-    --text: #202943;
-    --muted: #69738a;
-    --background: #f7f8fc;
-    --white: #ffffff;
-    --border: #e5e9f2;
-    --radius: 16px;
+  --black: #171714;
+  --black-soft: #23231f;
+  --ivory: #f7f4ee;
+  --white: #ffffff;
+  --gold: #b59a68;
+  --gold-light: #d6c39d;
+  --text: #26251f;
+  --muted: #77746d;
+  --border: #e7e1d7;
+  --surface: #fcfaf6;
+  --radius: 18px;
+  --container: 1180px;
+  --shadow: 0 14px 40px rgba(30, 27, 20, 0.07);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.6;
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+select {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
 
 button,
 input,
 select {
-    font: inherit;
+  font-size: inherit;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
 }
 
 .container {
-    width: min(1120px, 90%);
-    margin: 0 auto;
+  width: min(var(--container), calc(100% - 48px));
+  margin-inline: auto;
 }
 
-.section {
-    padding: 85px 0;
+section {
+  scroll-margin-top: 90px;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
 
-/* =====================================
-   2. Жоғарғы мәзір
-===================================== */
+h1,
+h2,
+h3 {
+  color: var(--black);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(44px, 6vw, 76px);
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 650;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* HEADER */
 
 .header {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(252, 250, 246, 0.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
 }
 
 .navbar {
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: var(--text);
-    white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  color: var(--black);
 }
 
 .logo span {
-    color: var(--primary);
+  color: var(--gold);
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 }
 
 .nav-links a {
-    font-size: 14px;
-    color: var(--muted);
-    transition: color 0.2s;
+  color: #57554f;
+  font-size: 13px;
+  font-weight: 550;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+  color: var(--gold);
 }
 
 .nav-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .menu-toggle {
-    display: none;
-    border: none;
-    background: transparent;
-    color: var(--text);
-    font-size: 27px;
+  display: none;
 }
 
-
-/* =====================================
-   3. Батырмалар
-===================================== */
+/* BUTTONS */
 
 .btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 11px 19px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 14px;
-    transition: 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 21px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 650;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .btn-primary {
-    background: var(--primary);
-    color: var(--white);
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
-    background: var(--white);
-    color: var(--text);
-    border-color: var(--border);
+  background: transparent;
+  color: var(--black);
+  border-color: var(--border);
 }
 
 .btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+  border-color: var(--gold);
+  color: #8c7145;
 }
 
 .btn-light {
-    background: var(--white);
-    color: var(--primary);
+  background: var(--ivory);
+  color: var(--black);
+  border-color: var(--ivory);
 }
 
 .btn-light:hover {
-    background: #edf1ff;
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
 }
 
-
-/* =====================================
-   4. Басты экран
-===================================== */
+/* HERO */
 
 .hero {
-    padding: 90px 0 75px;
-    background:
-        radial-gradient(circle at 90% 10%, #e4eaff 0, transparent 35%),
-        linear-gradient(135deg, #f7f8ff, #eef2ff);
+  position: relative;
+  overflow: hidden;
+  padding: 112px 0 92px;
+  background:
+    radial-gradient(
+      ellipse at 85% 10%,
+      rgba(181, 154, 104, 0.13),
+      transparent 38%
+    ),
+    var(--ivory);
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-content {
-    text-align: center;
+  max-width: 1000px;
+  text-align: center;
 }
 
 .eyebrow {
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    margin-bottom: 12px;
+  margin-bottom: 20px;
+  color: #967b4d;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
 }
 
 .hero h1 {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: clamp(36px, 5vw, 58px);
-    line-height: 1.15;
-    letter-spacing: -2px;
+  max-width: 850px;
+  margin: 0 auto 24px;
 }
 
 .hero h1 span {
-    color: var(--primary);
+  color: var(--gold);
 }
 
 .hero-description {
-    max-width: 650px;
-    margin: 22px auto 32px;
-    color: var(--muted);
-    font-size: 17px;
+  max-width: 620px;
+  margin: 0 auto 38px;
+  font-size: 16px;
+  line-height: 1.9;
 }
 
+/* SEARCH */
+
 .search-form {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr auto;
-    gap: 12px;
-    text-align: left;
-    padding: 18px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--white);
-    box-shadow: 0 14px 40px rgba(37, 57, 110, 0.08);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-align: left;
 }
 
 .search-field {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 0;
+  min-width: 0;
+  padding: 8px 14px;
+  border-right: 1px solid var(--border);
 }
 
 .search-field label {
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 750;
 }
 
 .search-field input,
 .search-field select {
-    width: 100%;
-    min-width: 0;
-    padding: 10px 8px;
-    color: var(--text);
-    background: var(--white);
-    border: none;
-    outline: none;
+  width: 100%;
+  min-width: 0;
+  padding: 3px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.search-field input::placeholder {
+  color: #a29d93;
 }
 
 .search-field input:focus,
 .search-field select:focus {
-    box-shadow: 0 2px 0 var(--primary);
+  outline: none;
 }
 
 .search-button {
-    align-self: end;
-    min-height: 44px;
+  min-width: 105px;
+  min-height: 52px;
 }
 
 .search-note {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 17px;
+  margin: 20px 0 0;
+  font-size: 12px;
 }
 
+/* GENERAL SECTIONS */
 
-/* =====================================
-   5. Бөлім тақырыптары
-===================================== */
+.section {
+  padding: 94px 0;
+}
+
+.jobs-section {
+  background: var(--surface);
+}
+
+.advantages-section {
+  background: var(--ivory);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 
 .section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
 }
 
-.section-heading h2,
-.employer-content h2 {
-    font-size: clamp(27px, 3vw, 36px);
-    line-height: 1.25;
-    letter-spacing: -0.8px;
+.section-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  margin-bottom: 12px;
 }
 
 .section-description {
-    margin-top: 10px;
-    color: var(--muted);
+  margin-bottom: 0;
 }
 
-.centered {
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 38px;
+.section-heading.centered {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading.centered .section-description {
+  max-width: 570px;
+  margin-inline: auto;
 }
 
 .results-count {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 18px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-
-/* =====================================
-   6. Вакансия карточкалары
-===================================== */
-
-.jobs-section {
-    background: var(--white);
-}
+/* JOB CARDS */
 
 .jobs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .job-card {
-    padding: 23px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 3px 14px rgba(30, 27, 20, 0.02);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .job-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 35px rgba(37, 57, 110, 0.09);
+  transform: translateY(-5px);
+  border-color: var(--gold-light);
+  box-shadow: var(--shadow);
 }
 
 .job-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 .company-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 13px;
-    display: grid;
-    place-items: center;
-    font-size: 14px;
-    font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: var(--black);
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-.purple {
-    background: #f0e9ff;
-    color: #7547c8;
-}
-
-.blue {
-    background: #e7efff;
-    color: #3157d5;
-}
-
-.orange {
-    background: #fff0df;
-    color: #c56c12;
-}
-
-.green {
-    background: #e2f8ee;
-    color: #178657;
-}
-
-.pink {
-    background: #ffe9f1;
-    color: #c34479;
-}
-
-.yellow {
-    background: #fff6d9;
-    color: #9b7913;
+.company-icon.purple,
+.company-icon.blue,
+.company-icon.orange,
+.company-icon.green,
+.company-icon.pink,
+.company-icon.yellow {
+  background: var(--black);
+  color: var(--gold-light);
 }
 
 .job-type {
-    padding: 5px 10px;
-    background: #f0f3ff;
-    color: var(--primary);
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: #776b56;
+  background: var(--ivory);
+  font-size: 10px;
+  font-weight: 650;
 }
 
 .job-card h3 {
-    font-size: 19px;
-    line-height: 1.4;
-    margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  overflow-wrap: anywhere;
 }
 
 .company-name {
-    color: var(--muted);
-    font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--black-soft);
+  font-size: 13px;
+  font-weight: 650;
 }
 
 .job-location {
-    margin-top: 15px;
-    font-size: 13px;
-    color: var(--muted);
+  margin-bottom: 14px;
+  font-size: 12px;
 }
 
 .job-description {
-    margin: 14px 0 22px;
-    color: var(--muted);
-    font-size: 13px;
-    flex: 1;
+  flex: 1;
+  margin-bottom: 24px;
+  font-size: 13px;
+  line-height: 1.8;
 }
 
 .job-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
 }
 
 .job-bottom strong {
-    font-size: 15px;
-    white-space: nowrap;
+  color: var(--black);
+  font-size: 15px;
+  white-space: nowrap;
 }
 
-.job-bottom .btn {
-    padding: 9px 12px;
-    font-size: 12px;
+.apply-button {
+  min-height: 40px;
+  padding: 9px 13px;
+  font-size: 11px;
 }
 
 .empty-message {
-    margin-top: 25px;
-    padding: 25px;
-    text-align: center;
-    background: var(--background);
-    border-radius: var(--radius);
-    color: var(--muted);
+  padding: 32px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  text-align: center;
 }
 
-
-/* =====================================
-   7. Артықшылықтар
-===================================== */
-
-.advantages-section {
-    background: var(--background);
-}
+/* ADVANTAGES */
 
 .advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .advantage-card {
-    padding: 30px;
-    border-radius: var(--radius);
-    background: var(--white);
-    border: 1px solid var(--border);
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.advantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
 .advantage-icon {
-    font-size: 32px;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 24px;
+  border-radius: 14px;
+  background: var(--black);
+  font-size: 23px;
 }
 
 .advantage-card h3 {
-    font-size: 19px;
-    margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .advantage-card p {
-    color: var(--muted);
-    font-size: 14px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.9;
 }
 
-
-/* =====================================
-   8. Жұмыс берушілер бөлімі
-===================================== */
+/* EMPLOYERS */
 
 .employer-section {
-    background: var(--primary);
-    color: var(--white);
+  padding: 35px 0 95px;
+  background: var(--surface);
 }
 
 .employer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 54px;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(181, 154, 104, 0.18),
+      transparent 45%
+    ),
+    var(--black);
 }
 
 .employer-content > div {
-    max-width: 680px;
+  max-width: 680px;
 }
 
 .employer-content .eyebrow {
-    color: #dce4ff;
+  color: var(--gold-light);
+}
+
+.employer-content h2 {
+  color: var(--ivory);
 }
 
 .employer-content p:not(.eyebrow) {
-    margin-top: 15px;
-    color: #e5eaff;
+  color: #c7c2b8;
 }
 
-
-/* =====================================
-   9. Төменгі бөлік
-===================================== */
-
-.footer {
-    padding: 32px 0;
-    background: #171f35;
-    color: var(--white);
+.employer-content .btn {
+  flex-shrink: 0;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-logo {
-    color: var(--white);
-}
-
-.footer-content p {
-    color: #c0c8da;
-    font-size: 13px;
-}
-
-
-/* =====================================
-   10. Кіру және тіркелу терезелері
-===================================== */
+/* MODAL WINDOWS */
 
 .modal {
-    width: min(420px, calc(100% - 30px));
-    margin: auto;
-    padding: 30px;
-    border: none;
-    border-radius: 18px;
-    color: var(--text);
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+  width: min(450px, calc(100% - 32px));
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.2);
 }
 
 .modal::backdrop {
-    background: rgba(18, 27, 49, 0.55);
+  background: rgba(18, 17, 14, 0.65);
+  backdrop-filter: blur(5px);
 }
 
 .modal h2 {
-    margin-bottom: 7px;
+  margin-bottom: 12px;
+  font-size: 32px;
 }
 
 .modal > p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 20px;
+  font-size: 13px;
 }
 
 .modal-close-form {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
 }
 
-.modal-close {
-    border: none;
-    background: transparent;
-    font-size: 28px;
-    color: var(--muted);
+.modal .modal-close {
+  min-height: 35px;
+  width: 35px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--black);
+  font-size: 23px;
+}
+
+.modal .modal-close:hover {
+  background: var(--ivory);
 }
 
 .auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
 }
 
 .auth-form label {
-    font-size: 13px;
-    font-weight: 700;
+  margin-top: 6px;
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 650;
 }
 
 .auth-form input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    margin-bottom: 7px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--white);
+  color: var(--black);
+  outline: none;
 }
 
 .auth-form input:focus {
-    outline: 2px solid #dce4ff;
-    border-color: var(--primary);
+  border-color: var(--gold);
 }
 
-.auth-form .btn {
-    margin-top: 10px;
+.auth-form button {
+  width: 100%;
+  margin-top: 12px;
 }
 
+/* FOOTER */
 
-/* =====================================
-   11. Телефон мен планшетке бейімдеу
-===================================== */
+.footer {
+  padding: 34px 0;
+  border-top: 1px solid var(--border);
+  background: var(--ivory);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.footer-logo {
+  font-size: 22px;
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
-    .navbar {
-        flex-wrap: wrap;
-        padding: 16px 0;
-    }
+  .navbar {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-block: 15px;
+  }
 
-    .nav-links {
-        gap: 14px;
-    }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    gap: 20px;
+  }
 
-    .nav-links a {
-        font-size: 12px;
-    }
+  .jobs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    .nav-buttons .btn {
-        padding: 9px 12px;
-    }
+  .hero {
+    padding: 85px 0 70px;
+  }
 
-    .search-form {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .search-form {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .search-button {
-        width: 100%;
-    }
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
 
-    .jobs-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .search-button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 650px) {
-    .container {
-        width: 92%;
-    }
+  .container {
+    width: calc(100% - 32px);
+  }
 
-    .section {
-        padding: 60px 0;
-    }
+  .navbar {
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-    }
+  .logo {
+    font-size: 23px;
+  }
 
-    .menu-toggle {
-        display: block;
-        order: 2;
-    }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: transparent;
+    color: var(--black);
+    font-size: 23px;
+  }
 
-    .nav-buttons {
-        order: 3;
-    }
+  .nav-links {
+    display: none;
+    order: 4;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+  }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        order: 4;
-        width: 100%;
-        padding: 15px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: var(--white);
-    }
+  .nav-links.active {
+    display: flex;
+  }
 
-    .nav-links.open {
-        display: flex;
-    }
+  .nav-links a {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
 
-    .nav-links a {
-        padding: 8px 0;
-        font-size: 14px;
-    }
+  .nav-buttons {
+    width: 100%;
+    order: 5;
+  }
 
-    .nav-buttons .btn {
-        padding: 8px 10px;
-        font-size: 12px;
-    }
+  .nav-buttons .btn {
+    flex: 1;
+    padding-inline: 12px;
+  }
 
-    .hero {
-        padding: 65px 0 55px;
-    }
+  h1 {
+    font-size: clamp(39px, 11vw, 56px);
+  }
 
-    .hero h1 {
-        font-size: 37px;
-        letter-spacing: -1px;
-    }
+  h2 {
+    font-size: 32px;
+  }
 
-    .hero-description {
-        font-size: 15px;
-    }
+  .hero {
+    padding: 68px 0 55px;
+  }
 
-    .search-form {
-        grid-template-columns: 1fr;
-        padding: 15px;
-    }
+  .hero-description {
+    font-size: 14px;
+  }
 
-    .search-field {
-        padding: 5px 0;
-        border-bottom: 1px solid var(--border);
-    }
+  .search-form {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 
-    .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .search-field {
+    padding: 12px;
+  }
 
-    .jobs-grid,
-    .advantages-grid {
-        grid-template-columns: 1fr;
-    }
+  .search-button {
+    margin-top: 8px;
+  }
 
-    .employer-content {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+  .section {
+    padding: 62px 0;
+  }
 
-    .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-    .job-bottom {
-        flex-wrap: wrap;
-    }
+  .jobs-grid,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-card {
+    padding: 23px;
+  }
+
+  .employer-section {
+    padding: 20px 0 60px;
+  }
+
+  .employer-content {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 30px 24px;
+    gap: 18px;
+  }
+
+  .footer-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modal {
+    padding: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
