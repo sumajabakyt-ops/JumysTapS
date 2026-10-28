@@ -1,3 +1,18 @@
+/* =====================================
+   1. Негізгі баптаулар
+===================================== */
+
+:root {
+    --primary: #3157d5;
+    --primary-dark: #2444b5;
+    --text: #202943;
+    --muted: #69738a;
+    --background: #f7f8fc;
+    --white: #ffffff;
+    --border: #e5e9f2;
+    --radius: 16px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,441 +21,716 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9fc;
-    color: #182338;
+    color: var(--text);
+    background: var(--white);
     line-height: 1.6;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+button,
+input,
+select {
+    font: inherit;
 }
 
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 85px 0;
+}
+
+
+/* =====================================
+   2. Жоғарғы мәзір
+===================================== */
+
 .header {
-    min-height: 76px;
-    padding: 16px 8%;
-    background: #ffffff;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    min-height: 78px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    border-bottom: 1px solid #e8edf4;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 .logo {
     font-size: 25px;
     font-weight: 800;
-    color: #173b70;
+    letter-spacing: -1px;
+    color: var(--text);
+    white-space: nowrap;
 }
 
 .logo span {
-    color: #4285f4;
+    color: var(--primary);
 }
 
-.navigation {
+.nav-links {
     display: flex;
     align-items: center;
-    gap: 26px;
-    flex-wrap: wrap;
+    gap: 23px;
 }
 
-.navigation a {
+.nav-links a {
     font-size: 14px;
-    color: #536177;
+    color: var(--muted);
+    transition: color 0.2s;
 }
 
-.navigation a:hover {
-    color: #2868c7;
+.nav-links a:hover {
+    color: var(--primary);
 }
 
-.navigation .nav-button {
-    background: #2868c7;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
+.nav-buttons {
+    display: flex;
+    gap: 10px;
 }
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 27px;
+}
+
+
+/* =====================================
+   3. Батырмалар
+===================================== */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 19px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: var(--white);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-light {
+    background: var(--white);
+    color: var(--primary);
+}
+
+.btn-light:hover {
+    background: #edf1ff;
+}
+
+
+/* =====================================
+   4. Басты экран
+===================================== */
 
 .hero {
+    padding: 90px 0 75px;
+    background:
+        radial-gradient(circle at 90% 10%, #e4eaff 0, transparent 35%),
+        linear-gradient(135deg, #f7f8ff, #eef2ff);
+}
+
+.hero-content {
     text-align: center;
-    padding: 82px 20px 72px;
-    background: linear-gradient(135deg, #edf4ff, #ffffff);
 }
 
 .eyebrow {
-    color: #3475d4;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
     margin-bottom: 12px;
 }
 
 .hero h1 {
-    max-width: 760px;
-    margin: 0 auto 18px;
-    font-size: clamp(32px, 5vw, 54px);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: clamp(36px, 5vw, 58px);
     line-height: 1.15;
-    color: #17345f;
+    letter-spacing: -2px;
 }
 
-.hero-text {
-    max-width: 570px;
-    margin: 0 auto 28px;
-    color: #647187;
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: 22px auto 32px;
+    color: var(--muted);
+    font-size: 17px;
 }
 
 .search-form {
-    max-width: 650px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr auto;
+    gap: 12px;
+    text-align: left;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 14px 40px rgba(37, 57, 110, 0.08);
+}
+
+.search-field {
     display: flex;
-    gap: 10px;
-    padding: 8px;
-    background: white;
-    border: 1px solid #e2e9f2;
-    border-radius: 12px;
-    box-shadow: 0 8px 28px #183a6810;
-}
-
-.search-form input {
-    flex: 1;
+    flex-direction: column;
+    gap: 5px;
     min-width: 0;
-    padding: 12px;
-    border: none;
-    outline: none;
-    font-size: 15px;
 }
 
-.search-form button,
-.cta-button {
-    background: #2868c7;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 13px 20px;
-    cursor: pointer;
+.search-field label {
+    font-size: 12px;
+    color: var(--muted);
     font-weight: 700;
 }
 
-.search-form button:hover,
-.cta-button:hover {
-    background: #1b4f9c;
+.search-field input,
+.search-field select {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 8px;
+    color: var(--text);
+    background: var(--white);
+    border: none;
+    outline: none;
 }
 
-.popular {
-    margin-top: 18px;
-    color: #758198;
+.search-field input:focus,
+.search-field select:focus {
+    box-shadow: 0 2px 0 var(--primary);
+}
+
+.search-button {
+    align-self: end;
+    min-height: 44px;
+}
+
+.search-note {
+    color: var(--muted);
     font-size: 13px;
+    margin-top: 17px;
 }
 
-.jobs-section {
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 65px 24px;
-}
+
+/* =====================================
+   5. Бөлім тақырыптары
+===================================== */
 
 .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 26px;
+    gap: 24px;
+    margin-bottom: 30px;
 }
 
 .section-heading h2,
-.cta h2 {
-    font-size: 30px;
-    color: #17345f;
+.employer-content h2 {
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.25;
+    letter-spacing: -0.8px;
 }
 
-#jobCount {
-    color: #647187;
+.section-description {
+    margin-top: 10px;
+    color: var(--muted);
+}
+
+.centered {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.results-count {
+    color: var(--muted);
     font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.job-list {
+
+/* =====================================
+   6. Вакансия карточкалары
+===================================== */
+
+.jobs-section {
+    background: var(--white);
+}
+
+.jobs-grid {
     display: grid;
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
 }
 
 .job-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
     padding: 23px;
-    background: #ffffff;
-    border: 1px solid #e7edf5;
-    border-radius: 14px;
-    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .job-card:hover {
-    box-shadow: 0 10px 28px #17345f12;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(37, 57, 110, 0.09);
+}
+
+.job-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .company-icon {
-    width: 54px;
-    height: 54px;
-    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
     display: grid;
     place-items: center;
-    border-radius: 12px;
-    background: #e3efff;
-    color: #2868c7;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 800;
 }
 
-.company-icon.purple {
-    background: #eee8ff;
-    color: #7650c8;
+.purple {
+    background: #f0e9ff;
+    color: #7547c8;
 }
 
-.company-icon.orange {
+.blue {
+    background: #e7efff;
+    color: #3157d5;
+}
+
+.orange {
     background: #fff0df;
-    color: #c87524;
+    color: #c56c12;
 }
 
-.job-info {
-    flex: 1;
+.green {
+    background: #e2f8ee;
+    color: #178657;
 }
 
-.job-info h3 {
-    font-size: 18px;
-    margin-bottom: 4px;
+.pink {
+    background: #ffe9f1;
+    color: #c34479;
 }
 
-.job-info p {
-    color: #718096;
+.yellow {
+    background: #fff6d9;
+    color: #9b7913;
+}
+
+.job-type {
+    padding: 5px 10px;
+    background: #f0f3ff;
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.job-card h3 {
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    color: var(--muted);
     font-size: 14px;
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
+.job-location {
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--muted);
 }
 
-.tags span {
-    background: #f0f5fc;
-    color: #4c6485;
-    padding: 5px 10px;
-    border-radius: 6px;
+.job-description {
+    margin: 14px 0 22px;
+    color: var(--muted);
+    font-size: 13px;
+    flex: 1;
+}
+
+.job-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.job-bottom strong {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.job-bottom .btn {
+    padding: 9px 12px;
     font-size: 12px;
 }
 
-.job-action {
+.empty-message {
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+    background: var(--background);
+    border-radius: var(--radius);
+    color: var(--muted);
+}
+
+
+/* =====================================
+   7. Артықшылықтар
+===================================== */
+
+.advantages-section {
+    background: var(--background);
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.advantage-card {
+    padding: 30px;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.advantage-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.advantage-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.advantage-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =====================================
+   8. Жұмыс берушілер бөлімі
+===================================== */
+
+.employer-section {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.employer-content {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.employer-content > div {
+    max-width: 680px;
+}
+
+.employer-content .eyebrow {
+    color: #dce4ff;
+}
+
+.employer-content p:not(.eyebrow) {
+    margin-top: 15px;
+    color: #e5eaff;
+}
+
+
+/* =====================================
+   9. Төменгі бөлік
+===================================== */
+
+.footer {
+    padding: 32px 0;
+    background: #171f35;
+    color: var(--white);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: var(--white);
+}
+
+.footer-content p {
+    color: #c0c8da;
+    font-size: 13px;
+}
+
+
+/* =====================================
+   10. Кіру және тіркелу терезелері
+===================================== */
+
+.modal {
+    width: min(420px, calc(100% - 30px));
+    margin: auto;
+    padding: 30px;
+    border: none;
+    border-radius: 18px;
+    color: var(--text);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.modal::backdrop {
+    background: rgba(18, 27, 49, 0.55);
+}
+
+.modal h2 {
+    margin-bottom: 7px;
+}
+
+.modal > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.modal-close-form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-close {
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    color: var(--muted);
+}
+
+.auth-form {
+    display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.job-action strong {
-    color: #17345f;
-    font-size: 14px;
-}
-
-.apply-button {
-    color: #2868c7;
-    border: 1px solid #2868c7;
-    border-radius: 7px;
-    padding: 7px 14px;
+.auth-form label {
     font-size: 13px;
     font-weight: 700;
 }
 
-.apply-button:hover {
-    background: #2868c7;
-    color: white;
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    margin-bottom: 7px;
 }
 
-.empty-message {
-    padding: 24px;
-    text-align: center;
-    color: #647187;
+.auth-form input:focus {
+    outline: 2px solid #dce4ff;
+    border-color: var(--primary);
 }
 
-.cta {
-    margin: 0 8% 60px;
-    padding: 46px 20px;
-    text-align: center;
-    background: #eaf2ff;
-    border-radius: 18px;
+.auth-form .btn {
+    margin-top: 10px;
 }
 
-.cta p {
-    color: #647187;
-    margin: 12px 0 24px;
-}
 
-.cta-button {
-    display: inline-block;
-}
+/* =====================================
+   11. Телефон мен планшетке бейімдеу
+===================================== */
 
-.footer {
-    background: #ffffff;
-    border-top: 1px solid #e8edf4;
-    padding: 26px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-}
-
-.footer p {
-    color: #718096;
-    font-size: 13px;
-}
-
-@media (max-width: 650px) {
-    .header {
-        padding: 18px 5%;
-        align-items: flex-start;
-        flex-direction: column;
+@media (max-width: 1000px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 16px 0;
     }
 
-    .navigation {
+    .nav-links {
         gap: 14px;
     }
 
-    .hero {
-        padding: 58px 18px;
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-buttons .btn {
+        padding: 9px 12px;
     }
 
     .search-form {
-        flex-direction: column;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .search-form input {
-        padding: 14px;
-    }
-
-    .job-card {
-        align-items: flex-start;
-        flex-wrap: wrap;
-        padding: 18px;
-    }
-
-    .job-info {
-        min-width: 0;
-    }
-
-    .job-action {
+    .search-button {
         width: 100%;
-        flex-direction: row;
-        align-items: center;
+    }
+
+    .jobs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: 92%;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .navbar {
+        display: flex;
         justify-content: space-between;
-        padding-top: 12px;
-        border-top: 1px solid #edf0f5;
+        gap: 12px;
     }
 
-    .section-heading h2,
-    .cta h2 {
-        font-size: 25px;
+    .menu-toggle {
+        display: block;
+        order: 2;
     }
 
-    .footer {
+    .nav-buttons {
+        order: 3;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        order: 4;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--white);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+        font-size: 14px;
+    }
+
+    .nav-buttons .btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 65px 0 55px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .search-field {
+        padding: 5px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .jobs-grid,
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .employer-content {
         align-items: flex-start;
         flex-direction: column;
     }
-}
 
-/* Login and registration pages */
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.auth-section {
-    min-height: 75vh;
-    display: grid;
-    place-items: center;
-    padding: 48px 20px;
-    background: linear-gradient(135deg, #edf4ff, #ffffff);
-}
-
-.auth-card {
-    width: 100%;
-    max-width: 440px;
-    padding: 34px;
-    background: #ffffff;
-    border: 1px solid #e4ebf4;
-    border-radius: 16px;
-    box-shadow: 0 12px 36px #17345f10;
-}
-
-.auth-card h1 {
-    font-size: 28px;
-    color: #17345f;
-    margin-bottom: 8px;
-}
-
-.auth-description {
-    color: #718096;
-    margin-bottom: 24px;
-}
-
-.auth-card label {
-    display: block;
-    margin: 15px 0 6px;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.auth-card input,
-.auth-card select {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #dce4ef;
-    border-radius: 8px;
-    font-size: 15px;
-    background: #ffffff;
-}
-
-.auth-card input:focus,
-.auth-card select:focus {
-    outline: 2px solid #9fc4ff;
-    border-color: #2868c7;
-}
-
-.auth-submit {
-    width: 100%;
-    margin-top: 22px;
-    padding: 13px;
-    background: #2868c7;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.auth-submit:hover {
-    background: #1b4f9c;
-}
-
-.auth-switch {
-    text-align: center;
-    margin-top: 20px;
-    color: #718096;
-    font-size: 14px;
-}
-
-.auth-switch a {
-    color: #2868c7;
-    font-weight: 700;
-}
-
-.form-message {
-    margin-top: 14px;
-    font-size: 14px;
-    color: #2868c7;
-}
-
-@media (max-width: 480px) {
-    .auth-card {
-        padding: 24px 18px;
+    .job-bottom {
+        flex-wrap: wrap;
     }
 }
