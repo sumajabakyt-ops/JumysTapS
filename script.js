@@ -1,32 +1,54 @@
 const searchForm = document.getElementById("searchForm");
-const searchInput = document.getElementById("searchInput");
-const jobCards = document.querySelectorAll(".job-card");
-const jobCount = document.getElementById("jobCount");
-const emptyMessage = document.getElementById("emptyMessage");
 
-searchForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (searchForm) {
+    const searchInput = document.getElementById("searchInput");
+    const jobCards = document.querySelectorAll(".job-card");
+    const jobCount = document.getElementById("jobCount");
+    const emptyMessage = document.getElementById("emptyMessage");
 
-    const searchText = searchInput.value.trim().toLowerCase();
-    let visibleJobs = 0;
+    searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    jobCards.forEach(function (card) {
-        const searchableText = card.dataset.search.toLowerCase();
-        const title = card.querySelector("h3").textContent.toLowerCase();
-        const company = card.querySelector(".job-info p").textContent.toLowerCase();
+        const query = searchInput.value.trim().toLowerCase();
+        let count = 0;
 
-        const matches =
-            searchableText.includes(searchText) ||
-            title.includes(searchText) ||
-            company.includes(searchText);
+        jobCards.forEach(function (card) {
+            const text = card.textContent.toLowerCase();
+            const data = card.dataset.search.toLowerCase();
+            const matches = text.includes(query) || data.includes(query);
 
-        card.hidden = !matches;
+            card.hidden = !matches;
 
-        if (matches) {
-            visibleJobs++;
-        }
+            if (matches) {
+                count++;
+            }
+        });
+
+        jobCount.textContent = count + " jobs found";
+        emptyMessage.hidden = count !== 0;
     });
+}
 
-    jobCount.textContent = visibleJobs + " jobs found";
-    emptyMessage.hidden = visibleJobs !== 0;
-});
+// Login form: visual prototype only
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        document.getElementById("loginMessage").textContent =
+            "Demo only. Connect PHP authentication to log in.";
+    });
+}
+
+// Registration form: visual prototype only
+const registerForm = document.getElementById("registerForm");
+
+if (registerForm) {
+    registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        document.getElementById("registerMessage").textContent =
+            "Demo only. Connect PHP and MySQL to create an account.";
+    });
+}
