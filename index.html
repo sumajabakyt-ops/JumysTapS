@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFinder | Find Your Future</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="header">
+    <a href="index.html" class="logo">JobFinder<span>.</span></a>
+
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="#jobs">Find Jobs</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="nav-button">Register</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <p class="eyebrow">YOUR CAREER STARTS HERE</p>
+
+        <h1>Find a job that matches your future.</h1>
+
+        <p class="hero-text">
+            Discover opportunities, explore companies,
+            and take the next step in your career.
+        </p>
+
+        <form class="search-form" id="searchForm">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Job title or company"
+                aria-label="Job title or company"
+            >
+            <button type="submit">Search Jobs</button>
+        </form>
+
+        <p class="popular">
+            Popular: Developer, Designer, Manager
+        </p>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">CAREER OPPORTUNITIES</p>
+                <h2>Featured Jobs</h2>
+            </div>
+            <span id="jobCount">3 jobs available</span>
+        </div>
+
+        <div class="job-list" id="jobList">
+
+            <article class="job-card" data-search="frontend developer techvision">
+                <div class="company-icon">T</div>
+                <div class="job-info">
+                    <h3>Frontend Developer</h3>
+                    <p>TechVision · Almaty</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>Remote</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <strong>$800–1200</strong>
+                    <a href="login.html" class="apply-button">Apply</a>
+                </div>
+            </article>
+
+            <article class="job-card" data-search="ui ux designer creative studio">
+                <div class="company-icon purple">C</div>
+                <div class="job-info">
+                    <h3>UI/UX Designer</h3>
+                    <p>Creative Studio · Astana</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>Hybrid</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <strong>$700–1000</strong>
+                    <a href="login.html" class="apply-button">Apply</a>
+                </div>
+            </article>
+
+            <article class="job-card" data-search="junior php developer digital lab">
+                <div class="company-icon orange">D</div>
+                <div class="job-info">
+                    <h3>Junior PHP Developer</h3>
+                    <p>Digital Lab · Almaty</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>On-site</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <strong>$500–800</strong>
+                    <a href="login.html" class="apply-button">Apply</a>
+                </div>
+            </article>
+
+        </div>
+
+        <p id="emptyMessage" class="empty-message" hidden>
+            No jobs found. Try another search.
+        </p>
+    </section>
+
+    <section class="cta">
+        <h2>Ready for your next opportunity?</h2>
+        <p>Create your account and start exploring jobs.</p>
+        <a href="register.html" class="cta-button">Get Started</a>
+    </section>
+</main>
+
+<footer class="footer">
+    <a href="index.html" class="logo">JobFinder<span>.</span></a>
+    <p>© 2026 JobFinder. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
