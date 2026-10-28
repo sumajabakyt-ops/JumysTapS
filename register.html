@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | JobFinder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">JobFinder<span>.</span></a>
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="login.html" class="nav-button">Login</a>
+    </nav>
+</header>
+
+<main class="auth-section">
+    <form class="auth-card" id="registerForm">
+        <p class="eyebrow">JOIN JOBFINDER</p>
+        <h1>Create an account</h1>
+        <p class="auth-description">
+            Start your career journey with us.
+        </p>
+
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" required
+               placeholder="Your full name">
+
+        <label for="registerEmail">Email address</label>
+        <input type="email" id="registerEmail" required
+               placeholder="you@example.com">
+
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword"
+               minlength="8" required
+               placeholder="At least 8 characters">
+
+        <label for="role">I want to</label>
+        <select id="role" required>
+            <option value="job_seeker">Find a job</option>
+            <option value="employer">Hire employees</option>
+        </select>
+
+        <button type="submit" class="auth-submit">
+            Create Account
+        </button>
+
+        <p id="registerMessage" class="form-message"
+           aria-live="polite"></p>
+
+        <p class="auth-switch">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+    </form>
+</main>
+
+<footer class="footer">
+    <a href="index.html" class="logo">JobFinder<span>.</span></a>
+    <p>© 2026 JobFinder</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
